@@ -66,21 +66,36 @@ def adivinaNum():
         
 def piedraPapelTijera():
     opciones = ["piedra", "papel", "tijera"]
-    usuario = input("Elige piedra, papel o tijera: ").lower()
-    computadora = random.choice(opciones)
+    puntuacion_usuario = 0
+    puntuacion_computadora = 0
+
+    while puntuacion_usuario < 2 and puntuacion_computadora < 2:
+        usuario = input("Elige piedra, papel o tijera: ").lower()
+        computadora = random.choice(opciones)
+        
+        print(f"Tú elegiste: {usuario}") 
+        print(f"La computadora eligió: {computadora}")
+        
+        if usuario == computadora:
+            print("¡Es un empate!")
+        elif (usuario == "piedra" and computadora == "tijera") or \
+             (usuario == "papel" and computadora == "piedra") or \
+             (usuario == "tijera" and computadora == "papel"):
+            print("¡Ganaste esta ronda!")
+            puntuacion_usuario += 1
+        else:
+            print("¡Perdiste esta ronda!")
+            puntuacion_computadora += 1
+        
+        time.sleep(1)
     
-    print(f"Tú elegiste: {usuario}") 
-    print(f"La computadora eligió: {computadora}")
+    print("\nResultado final:")
+    print(f"Tú: {puntuacion_usuario} - Computadora: {puntuacion_computadora}")
     
-    if usuario == computadora:
-        print("¡Es un empate!")
-    elif (usuario == "piedra" and computadora == "tijera") or \
-         (usuario == "papel" and computadora == "piedra") or \
-         (usuario == "tijera" and computadora == "papel"):
-        print("¡Ganaste!")
+    if puntuacion_usuario > puntuacion_computadora:
+        print("¡Ganaste el juego!")
     else:
-        print("¡Perdiste!")
-    time.sleep(3)
+        print("¡Perdiste el juego!")
 
 
 
