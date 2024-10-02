@@ -52,10 +52,10 @@ def ahorcado():
 # Funcions Numero
 
 def adivinaNum():
-    numero_secreto = random.randint(1, 100)
+    numero_secreto = random.randint(1, 10)
     intentos = 0
     print("¡Bienvenido al juego de adivinar el número!")
-    print("Estoy pensando en un número entre 1 y 100.")
+    print("Estoy pensando en un número entre 1 y 10.")
     while True:
         intento = int(input("Introduce tu intento: "))
         intentos += 1
@@ -67,36 +67,37 @@ def adivinaNum():
             print(f"¡Felicidades! Adivinaste el número en {intentos} intentos.")
             time.sleep(3)
             break
-        
+
+# Funcions Pedra Paper Tisora
 def piedraPapelTijera():
     opciones = ["piedra", "papel", "tijera"]
     puntuacion_usuario = 0
-    puntuacion_computadora = 0
+    puntuacion_maquina = 0
 
-    while puntuacion_usuario < 2 and puntuacion_computadora < 2:
+    while puntuacion_usuario < 3 and puntuacion_maquina < 3:
         usuario = input("Elige piedra, papel o tijera: ").lower()
-        computadora = random.choice(opciones)
+        maquina = random.choice(opciones)
         
         print(f"Tú elegiste: {usuario}") 
-        print(f"La computadora eligió: {computadora}")
+        print(f"La maquina eligió: {maquina}")
         
-        if usuario == computadora:
+        if usuario == maquina:
             print("¡Es un empate!")
-        elif (usuario == "piedra" and computadora == "tijera") or \
-             (usuario == "papel" and computadora == "piedra") or \
-             (usuario == "tijera" and computadora == "papel"):
+        elif (usuario == "piedra" and maquina == "tijera") or \
+             (usuario == "papel" and maquina == "piedra") or \
+             (usuario == "tijera" and maquina == "papel"):
             print("¡Ganaste esta ronda!")
             puntuacion_usuario += 1
         else:
             print("¡Perdiste esta ronda!")
-            puntuacion_computadora += 1
+            puntuacion_maquina += 1
         
         time.sleep(1)
     
     print("\nResultado final:")
-    print(f"Tú: {puntuacion_usuario} - Computadora: {puntuacion_computadora}")
+    print(f"Tú: {puntuacion_usuario} - maquina: {puntuacion_maquina}")
     
-    if puntuacion_usuario > puntuacion_computadora:
+    if puntuacion_usuario > puntuacion_maquina:
         print("¡Ganaste el juego!")
     else:
         print("¡Perdiste el juego!")
