@@ -7,10 +7,10 @@ PararJuego = True
 
 def leerFichero():
     palabras = []
-    with open('palabras.txt', 'r') as file:
+    with open('P1 PYTHON BÀSIC - GAMEROOM/palabras.txt', 'r') as file:
         for line in file:
             palabras.extend(line.split())
-    # Convierte cada palabra a minúsculas
+    # Paraules a minus 
     palabras = [palabra.lower() for palabra in palabras]
     return palabras
 
