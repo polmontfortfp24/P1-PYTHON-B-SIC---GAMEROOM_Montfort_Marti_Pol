@@ -4,14 +4,15 @@ import time
 PararJuego = True
 
 # Funcions Penjat
-def obtPalabraRandom():
-    palabras = [
-        'python', 'programacion', 'ahorcado', 'desarrollo', 'codigo',
-        'óbito', 'aurora', 'columbra', 'rauco', 'quiescente',
-        'efímero', 'lúgubre', 'perenne', 'sempiterno', 'fugaz',
-        'inmarcesible', 'inefable', 'onírico', 'pletórico', 'sibilino',
-        'taciturno', 'ubiquitario', 'volátil', 'yermo', 'zozobra'
-    ]
+
+def leerFichero():
+    with open('palabras.txt', 'r') as file:
+        for line in file:
+            palabras.extend(line.split())
+    return palabras.lower()
+    
+def obtPalabraRandom(palabras):
+    palabras = leerFichero()
     return random.choice(palabras)
 def imprimir(palabra, letrasAdivinadas):
     tablero = ''
