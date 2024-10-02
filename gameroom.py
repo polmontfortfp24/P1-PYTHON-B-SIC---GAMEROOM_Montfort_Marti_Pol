@@ -6,12 +6,15 @@ PararJuego = True
 # Funcions Penjat
 
 def leerFichero():
+    palabras = []
     with open('palabras.txt', 'r') as file:
         for line in file:
             palabras.extend(line.split())
-    return palabras.lower()
-    
-def obtPalabraRandom(palabras):
+    # Convierte cada palabra a minúsculas
+    palabras = [palabra.lower() for palabra in palabras]
+    return palabras
+
+def obtPalabraRandom():
     palabras = leerFichero()
     return random.choice(palabras)
 def imprimir(palabra, letrasAdivinadas):
